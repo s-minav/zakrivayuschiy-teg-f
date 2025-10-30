@@ -46,24 +46,24 @@
   background-image: var(--page-background-image, none);
   background-size: cover;
   background-attachment: fixed;
-  font-variation-settings: "wght" var(--page-main-font-weight, 400);
+  font-variation-settings: "wght" var(--page-main-font-weight, 410);
   min-inline-size: 320px;
   min-block-size: 100dvb;
 }
 
 .page__header {
-  margin-block-end: 102px;
+  margin-block-end: 100px;
 }
 
 .modal {
   border: 2px solid var(--text-color, #000000);
-  padding: 25px 30px;
+  padding: 30px;
   color: var(--text-color, #000000);
   font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
   line-height: 1.5;
   text-transform: uppercase;
   background: var(--page-background-color, #ffffff);
-  max-inline-size: 355px;
+  max-inline-size: min(355px, calc(100vw - 34px));
 }
 
 .modal[open] {
@@ -91,6 +91,8 @@
 
 .modal__button {
   inline-size: 100%;
+  block-size: 38px;
+  padding-block: 0;
 }
 
 .page-title {
@@ -105,6 +107,9 @@
   line-height: normal;
   text-transform: uppercase;
   padding-block: clamp(7.5rem, 7rem + 2vw, 8rem);
+  inline-size: min(100%, 700px);
+  margin-inline: auto;
+  min-block-size: 368px;
 }
 
 .header__title {
@@ -124,14 +129,15 @@
 
 .cards-list {
   display: grid;
-  gap: 53.75px;
+  gap: 50px;
 }
 
 .card {
   margin-inline: auto;
   border: 2px solid var(--text-color, #000000);
   background: var(--page-background-color, #ffffff);
-  max-inline-size: 696px;
+  inline-size: min(100%, 700px);
+  box-sizing: border-box;
 }
 
 .card__header {
@@ -142,12 +148,11 @@
 .card__title {
   font-size: 18px;
   line-height: normal;
-  font-variation-settings: "wght" var(--headings-font-weight, 700);
+  font-variation-settings: "wght" var(--headings-font-weight, 715);
 }
 
 .card__img-wrapper {
   position: relative;
-  /* overflow - для коррекции эффектов filter blur */
   overflow: hidden;
 }
 
@@ -175,17 +180,18 @@
   object-fit: cover;
   object-position: center;
   inline-size: 100%;
+  max-inline-size: 700px;
   aspect-ratio: 1 / 1;
 }
 
 .card__content {
   display: grid;
-  gap: 27px;
+  gap: 25px;
   border-block-start: 2px solid var(--text-color, #000000);
   padding: 25px 25px 0 25px;
   font-size: 18px;
   line-height: calc(21 / 18);
-  word-break: auto-phrase;
+  font-variation-settings: "wght" var(--page-main-font-weight, 410);
 }
 
 .card__footer {
@@ -193,7 +199,7 @@
   justify-content: end;
   align-items: stretch;
   gap: 5px;
-  padding: 25px 25px 23px 25px;
+  padding: 25px;
 }
 
 .card__icon-button {
@@ -204,6 +210,11 @@
   transition: border-color 0.3s ease;
   cursor: pointer;
   appearance: none;
+}
+
+.card__like-button {
+  inline-size: 130px;
+  padding-inline: 0;
 }
 
 .card__icon-button:focus {
@@ -218,7 +229,6 @@
   position: relative;
   z-index: 1;
   border: 2px solid var(--text-color, #000000);
-  padding: 10px 35px;
   font-family: var(--page-accent-font-family, "PressStart2P", fantasy);
   font-size: 14px;
   text-transform: inherit;
@@ -269,6 +279,7 @@
 }
 
 .button__icon {
+  mix-blend-mode: normal;
   block-size: 22px;
   inline-size: 22px;
 }
@@ -277,11 +288,20 @@
   block-size: 36px;
   inline-size: 39px;
 }
+.card__content p br {
+  display: none;
+}
 
 @media (width < 376px) {
+  .card__content p br {
+    display: inline;
+  }
+  .card__img {
+    block-size: 371px;
+  }
+
   .modal {
-    padding: 28px 34px 28px 40px;
-    max-inline-size: 340px;
+    padding: 30px 40px;
   }
 
   .button--save {
