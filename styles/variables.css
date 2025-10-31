@@ -23,5 +23,8 @@
 
   --headings-font-weight: 715;
 
+  --modal-font-weight: 400;
+  --modal-font-size: 14px;
+
   --button-text-color: var(--page-background-color, #fff);
 }
