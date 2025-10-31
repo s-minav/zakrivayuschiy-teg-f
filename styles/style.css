@@ -273,15 +273,13 @@
   padding: 17px 20px;
 }
 
-.button__text {
+.button__text,
+.button__icon {
   color: var(--button-text-color, #ffffff);
   mix-blend-mode: difference;
 }
 
 .button__icon {
-  color: var(--button-text-color, #fff);
-  fill: currentColor;
-  mix-blend-mode: difference;
   inline-size: 22px;
   block-size: 22px;
 }
